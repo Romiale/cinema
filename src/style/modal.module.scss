@@ -1,0 +1,353 @@
+   div {
+       div {
+           div {
+               div {
+                   .header__modal {
+                       background: #131417;
+                       width: 100%;
+                       padding: 0.8% 2%;
+                       display: flex;
+                       justify-content: space-between;
+                       border-top-right-radius: 4px;
+                       border-top-left-radius: 4px;
+
+                       .h5 {
+                           color: white;
+                           font-family: 'Saira', sans-serif;
+                           font-size: 25px;
+                           font-weight: bold;
+                           margin-left: 2%;
+                       }
+
+                       div {
+                           width: 40%;
+                           height: auto;
+                           display: flex;
+                           justify-content: center;
+                           align-items: center;
+
+                           img.icones {
+                               width: 4%;
+                           }
+
+                           span {
+                               margin-left: -5%;
+                               margin-right: 10%;
+                               color: white;
+                               font-size: 13px;
+                               font-family: 'Saira', sans-serif;
+                               font-weight: 300;
+                           }
+
+                           button {
+                               background: #FFDD00;
+                               color: black;
+                               font-size: 12px;
+
+                           }
+                       }
+                   }
+
+                   .modal__body {
+                       height: auto;
+                       width: 100%;
+                       background: #131417;
+
+                       h3 {
+
+                           font-size: 18px;
+                           font-family: 'Saira',
+                               sans-serif;
+                           font-weight: 600;
+                           color: white;
+                           padding: 2% 4%;
+
+                           &:nth-child(2) {
+                               color: #FFD200;
+                           }
+                       }
+
+                       div {
+                           height: 40%;
+                           width: 100%;
+
+                           img {
+                               display: inline;
+                               width: 100%;
+                               height: 100%;
+                           }
+                       }
+
+                       .overview {
+                           display: flex;
+                           justify-content: space-between;
+
+
+                           .overview__comment {
+                               width: 65%;
+                               height: auto;
+                               border-bottom: solid 1px #FFD200;
+                               margin-left: 4%;
+
+
+                               p:nth-child(1) {
+                                   font-family: 'Saira', sans-serif;
+                                   font-style: normal;
+                                   font-weight: normal;
+                                   text-align: justify;
+                                   font-size: 16px;
+                                   line-height: 20px;
+                                   color: #FFF;
+                                   height: auto;
+                                   margin-left: 0;
+                                   margin-right: 0;
+                               }
+
+                               p:nth-child(2) {
+                                   font-family: 'Saira', sans-serif;
+                                   font-weight: bold;
+                                   font-size: 16px;
+                                   line-height: 20px;
+                                   color: #FFF;
+                                   height: auto;
+                                   margin-top: 2%;
+                                   margin-bottom: 2%;
+                                   margin-left: 0;
+                                   margin-right: 0;
+
+
+                               }
+                           }
+
+                           .overview__production {
+                               width: 25%;
+                               height: auto;
+
+                               div {
+
+                                   img {
+                                       height: auto;
+                                       margin-top: 0;
+                                       width: 23%;
+
+                                   }
+
+                               }
+
+                               div {
+                                   height: auto;
+
+                                   h4 {
+                                       font-family: 'Saira', sans-serif;
+                                       font-size: 14px;
+                                       font-style: normal;
+                                       font-weight: 800;
+                                       line-height: 18px;
+                                       letter-spacing: 0em;
+                                       text-align: left;
+                                       color: white;
+                                       padding-left: 7%;
+                                       margin-top: 2%;
+
+                                   }
+
+                                   p {
+                                       font-family: 'Saira', sans-serif;
+                                       font-size: 16px;
+                                       font-style: normal;
+                                       font-weight: 300;
+                                       line-height: 18px;
+                                       letter-spacing: 0em;
+                                       text-align: left;
+                                       padding-left: 2%;
+
+
+                                   }
+                               }
+                           }
+                       }
+
+                       .casting__list {
+                           width: 95%;
+                           display: flex;
+                           justify-content: center;
+                           overflow-x: auto;
+                           margin: 0 auto;
+
+                           div {
+                               width: 155px;
+                               background: #1F2229;
+                               margin: 2%;
+                               border-radius: 2px;
+
+                               @media (max-width:544px) {
+                                   width: 140px;
+                                   margin: 4%;
+                               }
+
+                               div.casting__img {
+                                   width: 90%;
+                               }
+
+
+
+                           }
+
+                       }
+
+                       h3.similar {
+                           font-family: 'Saira', sans-serif;
+                           font-style: normal;
+                           font-weight: bold;
+                           font-size: 24px;
+                           line-height: 15px;
+                           color: white;
+
+                           span {
+                               color: #FFD200;
+                           }
+                       }
+
+                       div.modal__similar {
+
+                           display: flex;
+                           justify-content: space-evenly;
+                           flex-wrap: wrap;
+                           width: 95%;
+                           margin: 0 auto;
+
+                           div.card__movie {
+                               position: relative;
+                               width: 240px;
+                               margin: 0.5%;
+
+                               @media (max-width: 411px) {
+                                   width: 160px;
+                                   display: flex;
+                                   justify-content: center;
+                                   margin-bottom: 5%;
+
+                               }
+
+                               .card__image {
+                                   position: absolute;
+                                   width: 215px;
+                                   height: 123px;
+                                   margin-top: 1%;
+
+                                   @media (max-width: 411px) {
+                                       width: 140px;
+                                       height: 90px;
+                                       margin-top: 5%;
+                                       margin-left: -5%;
+                                   }
+
+                                   img {
+                                       width: 100%;
+                                       height: 100%;
+                                       border-radius: 2%;
+                                   }
+
+
+                               }
+
+                               .card__comment {
+                                   display: flex;
+                                   flex-direction: column;
+                                   justify-content: flex-end;
+                                   width: 230px;
+                                   height: 180px;
+                                   padding: 2%;
+                                   margin-left: 4%;
+                                   border-radius: 2%;
+                                   background: #1E1F26;
+                                   transition: 0.3s ease 0.1s;
+
+                                   @media (max-width: 411px) {
+                                       width: 300px;
+                                       height: 140px;
+                                       margin-left: 1.8%;
+                                       margin-top: 2%;
+                                   }
+
+                                   .card__comment__details {
+                                       padding-top: 2%;
+                                       display: flex;
+                                       height: 15%;
+
+                                       p {
+                                           font-family: 'Saira', sans-serif;
+                                           font-weight: 400;
+                                           font-size: 0.8em;
+                                           color: #FFF;
+                                           margin: 0 15%;
+                                           padding: 0;
+                                           display: inline;
+
+                                           @media (max-width: 411px) {
+                                               display: none;
+                                           }
+                                       }
+
+                                       img {
+                                           width: 70%;
+                                           height: 70%;
+
+                                       }
+
+                                       span {
+                                           font-family: 'Saira', sans-serif;
+                                           font-weight: 200;
+                                           font-size: 12px;
+                                           color: white;
+                                       }
+
+                                   }
+
+                                   .card__comment__info__group {
+                                       height: 15%;
+                                       width: 100%;
+                                       display: flex;
+                                       justify-content: space-between;
+
+                                       p {
+                                           font-family: 'Saira', sans-serif;
+                                           font-weight: 400;
+                                           font-size: 1em;
+                                           margin: 0 6%;
+                                           padding: 0;
+                                           display: inline;
+
+                                       }
+
+                                   }
+                               }
+
+                           }
+
+                           button {
+                               width: 183px;
+                               height: 31px;
+                               background: #1F2229;
+                               border-radius: 4px;
+                               border: none;
+                               font-family: 'Saira', sans-serif;
+                               font-style: normal;
+                               font-weight: 600;
+                               font-size: 13px;
+                               line-height: 15px;
+                               text-align: center;
+                               color: #FFFFFF;
+                               margin: 3% 30%;
+                           }
+                       }
+
+
+
+                       padding-bottom: 10%;
+
+                   }
+               }
+           }
+       }
+   }

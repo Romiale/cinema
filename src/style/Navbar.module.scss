@@ -1,0 +1,70 @@
+.navigation {
+    background-color: #131417;
+    padding: 1% 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 99;
+    width: 90%;
+    right: 0;
+    top: 0;
+
+    @media (max-width: 750px) {
+        width: 100%;
+        overflow-x: hidden;
+
+    }
+
+    div {
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+
+        input {
+            width: 80%;
+            border-radius: 10px;
+            border: none;
+            background: #252830;
+            padding: 0.5%;
+            color: white;
+
+            &::placeholder {
+                text-align: center;
+                font-size: 15px;
+                color: white;
+                font-family: 'Saira',
+                    sans-serif;
+                font-weight: 200;
+            }
+        }
+
+        button {
+            padding: 0.3% 1.9%;
+            border: none;
+            border-radius: 5px;
+            background: #FFDD00;
+        }
+
+    }
+
+    .menu__modal {
+        button {
+            background: #000;
+        }
+
+        @media (min-width: 721px) {
+            display: none;
+        }
+
+    }
+
+    span {
+        color: white;
+        font-weight: 500;
+        font-family: 'Saira',
+            sans-serif;
+        font-size: 1.2em;
+        margin-left: 3%;
+    }
+}
