@@ -14,15 +14,15 @@ export default function Navigation() {
                 </button>
                 </div>
                 <div className={styles.menu__modal}>
-                <button type="button" class="btn" data-mdb-toggle="modal" data-mdb-target="#menu">
+                <button type="button" className="btn" data-mdb-toggle="modal" data-mdb-target="#menu">
                  Menu
                 </button>
-                <div class="modal right fade" id="menu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="false" data-mdb-keyboard="true">
-  <div class="modal-dialog modal-side modal-top-right ml-0">
-    <div class="modal-content">
-        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                <div className="modal right fade" id="menu" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="false" data-mdb-keyboard="true">
+  <div className="modal-dialog modal-side modal-top-right ml-0">
+    <div className="modal-content">
+        <button type="button" className="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
      <Sidebar/>
-        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+        <button type="button" className="btn btn-secondary" data-mdb-dismiss="modal">
           Close
         </button>
     </div>

@@ -15,9 +15,9 @@ import Casting from '../components/Casting';
 
 function MovieModal(props) {
     return (
-        <div className="modal top fade" id={"exampleModal" + props.id} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
-            <div class="modal-dialog modal-lg bg-dark">
-                <div class="modal-content">
+        <div className="modal top fade" id={"exampleModal" + props.id} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+            <div className="modal-dialog modal-lg bg-dark">
+                <div className="modal-content">
                     <div>
                         <div className={styles.header__modal}>
                             <h3 className={styles.h5} id="exampleModalLabel">Avatar</h3>
@@ -26,12 +26,14 @@ function MovieModal(props) {
                                 <span>305</span>
                                 <img className={styles.icones} src={eye} alt="eye" />
                                 <span>2,5K</span>
-                                <button type="button" class="btn" data-mdb-dismiss="modal" aria-label="Close">X</button>
+                                <button type="button" className="btn" data-mdb-dismiss="modal" aria-label="Close">X</button>
                             </div>
                         </div>
                     </div>
                     <div className={styles.modal__body}>
                         <div>
+                            {/* <iframe className="w-100 h-100 m-0 h-100" width="560" height="315" src="https://www.youtube.com/embed/AxLH0lXEGAY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
+
                             <img className="w-100 m-0" src={props.modalSrc} alt="bg" />
                         </div>
                         <h3>Overview</h3>
@@ -78,8 +80,8 @@ function MovieModal(props) {
                         </div>
                     </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-mdb-dismiss="modal">
+                    <div className="modal-footer">
+                        <button type="button" className="btn btn-dark" data-mdb-dismiss="modal">
                             Close
                             </button>
                     </div>

@@ -7,6 +7,7 @@ function CardMovieModal(props) {
     return (
         <div className={styles.card__movie}>
             <div className={styles.card__image}>
+                {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/bpHtxx_wmqw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
                 <img src={props.src} alt="bg" />
             </div>
             <div className={styles.card__comment}>

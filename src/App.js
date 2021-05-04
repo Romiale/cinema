@@ -1,4 +1,7 @@
-import { Route, Switch } from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
+import {PopularContext} from '../src/components/Contexts'
+import React , {useState , useEffect} from 'react' ;   
+import axios from 'axios';
 import Navbar from './components/Navbar';
 import Sidebar from './components/sidebar';
 import Home from './pages/Home';
@@ -7,7 +10,22 @@ import About from './pages/About';
 import Blog from './pages/Blog';
 
 
+
+
+
 function App() {
+  const [popularMovies, setPopularMovies] = useState([])
+
+  useEffect(() => {
+  
+  const PopularMoviesRecuperation = async () => {
+  const resultPopularMovies= await axios("https://api.themoviedb.org/3/movie/popular?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US");
+  setPopularMovies(resultPopularMovies.data.results);
+  }
+  PopularMoviesRecuperation()
+ 
+}, [])
+
   return (
     <div>
       <Navbar />
@@ -15,9 +33,11 @@ function App() {
       <Switch>
 
       <Route exact path="/">
-        <Home/>
+        <PopularContext.Provider value={popularMovies}>
+            <Home />
+            </PopularContext.Provider>
       </Route>
-        
+
       <Route path="/contact">
         <Contact/>
       </Route>
@@ -31,8 +51,9 @@ function App() {
       </Route>
         
       </Switch>
-
-    </div>
+        
+      </div>
+      
   );
 }
 

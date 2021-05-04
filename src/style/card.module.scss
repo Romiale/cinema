@@ -19,7 +19,7 @@ div.card__movie {
         width: 240px;
         height: 123px;
         margin-top: -4%;
-        background: rgb(251, 250, 250);
+        background: rgba(251, 250, 250, 0);
 
         @media (max-width: 411px) {
             width: 285px;
