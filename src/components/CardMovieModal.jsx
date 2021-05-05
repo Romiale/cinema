@@ -1,5 +1,4 @@
 import React from 'react'
-import MovieModal from '../components/MovieModal';
 import styles from '../style/modal.module.scss';
 
 

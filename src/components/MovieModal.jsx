@@ -1,5 +1,4 @@
 import React from 'react'
-import CardMovieModal from '../components/CardMovieModal';
 import styles from '../style/modal.module.scss';
 import heart from '../icons/heart.svg';
 import eye from '../icons/eye.svg';
@@ -13,34 +12,32 @@ import Casting from '../components/Casting';
 
 
 
-function MovieModal(props) {
+function MovieModal({ popularMovie }) {
     return (
-        <div className="modal top fade" id={"exampleModal" + props.id} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+        <div className="modal top fade" id={"exampleModal" + popularMovie.id} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
             <div className="modal-dialog modal-lg bg-dark">
                 <div className="modal-content">
                     <div>
                         <div className={styles.header__modal}>
-                            <h3 className={styles.h5} id="exampleModalLabel">Avatar</h3>
+                            <h3 className={styles.h5} id="exampleModalLabel">{popularMovie.title}</h3>
                             <div>
                                 <img className={styles.icones} src={heart} alt="eye" />
-                                <span>305</span>
+                                <span>{popularMovie.vote_average + "K"}</span>
                                 <img className={styles.icones} src={eye} alt="eye" />
-                                <span>2,5K</span>
+                                <span>{popularMovie.vote_count}</span>
                                 <button type="button" className="btn" data-mdb-dismiss="modal" aria-label="Close">X</button>
                             </div>
                         </div>
                     </div>
                     <div className={styles.modal__body}>
-                        <div>
-                            {/* <iframe className="w-100 h-100 m-0 h-100" width="560" height="315" src="https://www.youtube.com/embed/AxLH0lXEGAY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
-
-                            <img className="w-100 m-0" src={props.modalSrc} alt="bg" />
+                        <div className={styles.background__modalImage}>
+                            <img className="w-100 h-100 m-0 " src={"https://image.tmdb.org/t/p/original/" + popularMovie.poster_path} alt="bg" />
                         </div>
                         <h3>Overview</h3>
                         <div className={styles.overview}>
                             <div className={styles.overview__comment}>
-                                <p>Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, aliquam. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius enim eos deserunt quisquam nemo, repellendus itaque deleniti explicabo sunt quae nulla beatae, voluptas corrupti sint consequatur provident ex accusantium cum. adipisicing elit. Quos cupiditate illo, fugit corporis reprehenderit aliquam alias commodi possimus nesciunt ab repellat assumenda sit. Quis consequuntur natus vitae voluptatem eum deserunt.</p>
-                                <p>April 2014  English, Washington  </p>
+                                <p>{popularMovie.overview}</p>
+                                <p>{popularMovie.release_date}  ,{popularMovie.original_language === "en" ? "English" : popularMovie.original_language}  </p>
                             </div>
                             <div className={styles.overview__production}>
                                 <div>
@@ -67,14 +64,9 @@ function MovieModal(props) {
                             <Casting />
 
                         </div>
-                        <h3 className={styles.similar} ><span>S</span>imilar</h3>
+                        <h3 className={styles.similar}><span>S</span>imilar</h3>
                         <div className={styles.modal__similar}>
-                            <CardMovieModal src={bg2} logo={info} eye={eye} heart={heart} />
-                            <CardMovieModal src={bg2} logo={info} eye={eye} heart={heart} />
-                            <CardMovieModal src={bg2} logo={info} eye={eye} heart={heart} />
-                            <CardMovieModal src={bg2} logo={info} eye={eye} heart={heart} />
-                            <CardMovieModal src={bg2} logo={info} eye={eye} heart={heart} />
-                            <CardMovieModal src={bg2} logo={info} eye={eye} heart={heart} />
+                            <SimilarList movieId={popularMovie.id} />
                             <button> See more</button>
 
                         </div>

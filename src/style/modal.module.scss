@@ -67,14 +67,14 @@
                            }
                        }
 
-                       div {
-                           height: 40%;
+                       div.background__modalImage {
+                           height: 400px !important;
                            width: 100%;
+                           background: blanchedalmond;
 
                            img {
                                display: inline;
-                               width: 100%;
-                               height: 100%;
+                               height: 100% !important;
                            }
                        }
 

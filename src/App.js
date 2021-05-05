@@ -20,7 +20,7 @@ function App() {
   
   const PopularMoviesRecuperation = async () => {
   const resultPopularMovies= await axios("https://api.themoviedb.org/3/movie/popular?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US");
-  setPopularMovies(resultPopularMovies.data.results);
+    setPopularMovies(resultPopularMovies.data.results);
   }
   PopularMoviesRecuperation()
  
@@ -35,7 +35,7 @@ function App() {
       <Route exact path="/">
         <PopularContext.Provider value={popularMovies}>
             <Home />
-            </PopularContext.Provider>
+        </PopularContext.Provider>
       </Route>
 
       <Route path="/contact">
