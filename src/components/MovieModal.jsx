@@ -1,12 +1,10 @@
 import React from 'react'
+import SimilarList from '../components/SimilarList'
 import styles from '../style/modal.module.scss';
 import heart from '../icons/heart.svg';
 import eye from '../icons/eye.svg';
-import bg from '../img/bg.jpg';
 import imdb from '../icons/imdb.svg';
 import netflix from '../icons/netflix.svg';
-import bg2 from '../img/bg2.jpg';
-import info from '../icons/info-circle.svg';
 import Casting from '../components/Casting';
 
 

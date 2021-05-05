@@ -27,7 +27,7 @@ const Home = () => {
                         <img src={play} alt="" />
                     </div>
                 </div>
-                <h2 >Latests movies</h2>
+                <h2 >Upcoming</h2>
                 <div id="latests" className={styles.latests}>
                     {/* <CardMovie src={bg3} logo={info} eye={eye} heart={heart} modalSource={bg3} id={9} />
                     <CardMovie src={bg3} logo={info} eye={eye} heart={heart} modalSource={bg3} id={10} />
@@ -44,7 +44,6 @@ const Home = () => {
                 <div id="popular" className={styles.popular}>
                     {
                         popularMovies.map(popularMovie => {
-                            console.log(popularMovie)
                             return <CardMovie key={popularMovie.id} popularMovie={popularMovie} src={bg2} logo={info} eye={eye} heart={heart} modalSource={bg2} />
                         })
                     }

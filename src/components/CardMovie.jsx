@@ -1,6 +1,5 @@
 import styles from '../style/card.module.scss';
 import MovieModal from '../components/MovieModal';
-import bg from '../img/bg.jpg';
 import info from '../icons/info-circle.svg';
 import heart from '../icons/heart.svg';
 import eye from '../icons/eye.svg';
