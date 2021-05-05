@@ -34,9 +34,6 @@ function App() {
   return (
     
     <div>
-      {
-        console.log(movies)
-      }
       <Navbar />
       <Sidebar/>
       <Switch>

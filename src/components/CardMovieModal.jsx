@@ -16,8 +16,8 @@ function CardMovieModal({ similarMovie }) {
                     <img className={styles.card__comment__info} src={eye} alt="info" />
                     <span>{similarMovie.vote_count}</span>
                     <img className={styles.card__comment__info} src={heart} alt="info" />
-                    <span>3,5K</span>
-                    <p>2016</p>
+                    <span>{similarMovie.vote_average + "K"}</span>
+                    <p>{similarMovie.release_date}</p>
                 </div>
 
                 <div className={styles.card__comment__info__group}>

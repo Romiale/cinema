@@ -70,7 +70,18 @@
                        div.background__modalImage {
                            height: 400px !important;
                            width: 100%;
-                           background: blanchedalmond;
+                           display: flex;
+                           justify-content: space-evenly;
+                           background: #1F2229;
+
+                           h3 {
+                               font-family: 'Saira', sans-serif;
+                               font-size: 3em;
+                               font-weight: bolder;
+                               text-align: center;
+                               color: white;
+                               margin: auto 0;
+                           }
 
                            img {
                                display: inline;
@@ -214,12 +225,17 @@
                            justify-content: space-evenly;
                            flex-wrap: wrap;
                            width: 95%;
-                           margin: 0 auto;
+                           margin: 1% auto;
 
                            div.card__movie {
                                position: relative;
                                width: 240px;
-                               margin: 0.5%;
+                               margin: 2% 0.5%;
+                               transition: 0.3s ease-in-out;
+
+                               &:hover {
+                                   margin-top: -0.3%;
+                               }
 
                                @media (max-width: 411px) {
                                    width: 160px;
@@ -279,10 +295,13 @@
                                            font-family: 'Saira', sans-serif;
                                            font-weight: 400;
                                            font-size: 0.8em;
-                                           color: #FFF;
-                                           margin: 0 15%;
+                                           color: rgb(255, 255, 255);
+                                           margin: 0 0 0 10%;
                                            padding: 0;
                                            display: inline;
+                                           width: 350px;
+                                           overflow: hidden;
+                                           text-overflow: ellipsis;
 
                                            @media (max-width: 411px) {
                                                display: none;
@@ -299,7 +318,8 @@
                                            font-family: 'Saira', sans-serif;
                                            font-weight: 200;
                                            font-size: 12px;
-                                           color: white;
+                                           color: rgb(255, 255, 255);
+
                                        }
 
                                    }

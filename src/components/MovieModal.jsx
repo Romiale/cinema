@@ -29,7 +29,7 @@ function MovieModal({ Movie }) {
                     </div>
                     <div className={styles.modal__body}>
                         <div className={styles.background__modalImage}>
-                            <img className="w-100 h-100 m-0 " src={"https://image.tmdb.org/t/p/original/" + Movie.poster_path} alt="bg" />
+                            <img className="w-100 h-100 m-0 " src={"https://image.tmdb.org/t/p/original/" + Movie.backdrop_path} alt="bg" />
                         </div>
                         <h3>Overview</h3>
                         <div className={styles.overview}>
