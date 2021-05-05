@@ -1,19 +1,15 @@
-import React, { useContext } from 'react'
-import { PopularContext } from '../components/Contexts';
-import CardMovie from '../components/CardMovie';
+import React, { useContext } from 'react';
+import UpcommingList from '../components/UpcommingList';
+import PopularList from '../components/PopularList';
 import Footer from '../components/Footer';
 import styles from '../style/Home.module.scss';
 import bg2 from '../img/bg2.jpg';
-import heart from '../icons/heart.svg';
-import eye from '../icons/eye.svg';
-import info from '../icons/info-circle.svg';
 import play from '../icons/play.svg';
 
 
 
 
 const Home = () => {
-    const popularMovies = useContext(PopularContext)
 
     return (
 
@@ -29,24 +25,13 @@ const Home = () => {
                 </div>
                 <h2 >Upcoming</h2>
                 <div id="latests" className={styles.latests}>
-                    {/* <CardMovie src={bg3} logo={info} eye={eye} heart={heart} modalSource={bg3} id={9} />
-                    <CardMovie src={bg3} logo={info} eye={eye} heart={heart} modalSource={bg3} id={10} />
-                    <CardMovie src={bg3} logo={info} eye={eye} heart={heart} modalSource={bg3} id={11} />
-                    <CardMovie src={bg3} logo={info} eye={eye} heart={heart} modalSource={bg3} id={12} />
-                    <CardMovie src={bg3} logo={info} eye={eye} heart={heart} modalSource={bg3} id={13} />
-                    <CardMovie src={bg3} logo={info} eye={eye} heart={heart} modalSource={bg3} id={14} />
-                    <CardMovie src={bg3} logo={info} eye={eye} heart={heart} modalSource={bg3} id={15} />
-                    <CardMovie src={bg3} logo={info} eye={eye} heart={heart} modalSource={bg3} id={16} /> */}
+                    <UpcommingList />
                 </div>
 
                 <h2 >Popular</h2>
 
                 <div id="popular" className={styles.popular}>
-                    {
-                        popularMovies.map(popularMovie => {
-                            return <CardMovie key={popularMovie.id} popularMovie={popularMovie} src={bg2} logo={info} eye={eye} heart={heart} modalSource={bg2} />
-                        })
-                    }
+                    <PopularList />
                 </div>
                 <Footer />
             </div>

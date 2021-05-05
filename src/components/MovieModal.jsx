@@ -10,32 +10,32 @@ import Casting from '../components/Casting';
 
 
 
-function MovieModal({ popularMovie }) {
+function MovieModal({ Movie }) {
     return (
-        <div className="modal top fade" id={"exampleModal" + popularMovie.id} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+        <div className="modal top fade" id={"exampleModal" + Movie.id} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
             <div className="modal-dialog modal-lg bg-dark">
                 <div className="modal-content">
                     <div>
                         <div className={styles.header__modal}>
-                            <h3 className={styles.h5} id="exampleModalLabel">{popularMovie.title}</h3>
+                            <h3 className={styles.h5} id="exampleModalLabel">{Movie.title}</h3>
                             <div>
                                 <img className={styles.icones} src={heart} alt="eye" />
-                                <span>{popularMovie.vote_average + "K"}</span>
+                                <span>{Movie.vote_average + "K"}</span>
                                 <img className={styles.icones} src={eye} alt="eye" />
-                                <span>{popularMovie.vote_count}</span>
+                                <span>{Movie.vote_count}</span>
                                 <button type="button" className="btn" data-mdb-dismiss="modal" aria-label="Close">X</button>
                             </div>
                         </div>
                     </div>
                     <div className={styles.modal__body}>
                         <div className={styles.background__modalImage}>
-                            <img className="w-100 h-100 m-0 " src={"https://image.tmdb.org/t/p/original/" + popularMovie.poster_path} alt="bg" />
+                            <img className="w-100 h-100 m-0 " src={"https://image.tmdb.org/t/p/original/" + Movie.poster_path} alt="bg" />
                         </div>
                         <h3>Overview</h3>
                         <div className={styles.overview}>
                             <div className={styles.overview__comment}>
-                                <p>{popularMovie.overview}</p>
-                                <p>{popularMovie.release_date}  ,{popularMovie.original_language === "en" ? "English" : popularMovie.original_language}  </p>
+                                <p>{Movie.overview}</p>
+                                <p>{Movie.release_date}  ,{Movie.original_language === "en" ? "English" : Movie.original_language}  </p>
                             </div>
                             <div className={styles.overview__production}>
                                 <div>
@@ -64,9 +64,8 @@ function MovieModal({ popularMovie }) {
                         </div>
                         <h3 className={styles.similar}><span>S</span>imilar</h3>
                         <div className={styles.modal__similar}>
-                            <SimilarList movieId={popularMovie.id} />
+                            <SimilarList movieId={Movie.id} />
                             <button> See more</button>
-
                         </div>
                     </div>
 
