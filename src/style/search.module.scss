@@ -1,0 +1,15 @@
+.search__page {
+    width: auto;
+    height: auto;
+    padding-left: 1%;
+    margin-left: 0%;
+    background: #131417;
+    position: relative;
+
+
+    @media (max-width: 780px) {
+        width: auto;
+        margin-left: -10%;
+        overflow-x: hidden;
+    }
+}
