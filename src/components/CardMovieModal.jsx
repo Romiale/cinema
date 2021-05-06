@@ -21,7 +21,7 @@ function CardMovieModal({ similarMovie }) {
                 </div>
 
                 <div className={styles.card__comment__info__group}>
-                    <p>Avatar 2</p>
+                    <p>{similarMovie.title}</p>
                 </div>
 
             </div>

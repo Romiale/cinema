@@ -1,17 +1,14 @@
 import styles from '../style/Navbar.module.scss';
-import search from '../icons/search.svg'
 import Sidebar from '../components/sidebar';
+import SearchMovie from '../components/SearchMovie';
 
-export default function Navigation() {
+
+export default function Navigation({handlClick,handlChange}) {
+    
     return (
         <div>
             <div className={styles.navigation}>
-                <div>
-                    <input type="text" placeholder="Search movie" />
-                    <button>
-                        <img src={search} alt="search" />
-                    </button>
-                </div>
+                <SearchMovie handlChange={handlChange} handlClick={handlClick}/>
                 <div className={styles.menu__modal}>
                     <button type="button" className="btn" data-mdb-toggle="modal" data-mdb-target="#menu">
                      Menu

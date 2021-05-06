@@ -17,7 +17,7 @@ function Sidebar() {
             <button className={styles.sidebar__btn}> Contact Us</button>
               <ul>
                 <li className={styles.title}><Link className="active" to="/"> <span>H</span>ome</Link></li>
-                <li> <img src={latest} alt="latest" className={styles.icones__link} /> <Link to="/#latests">Upcoming</Link></li>
+                <li> <img src={latest} alt="latest" className={styles.icones__link} /><Link to="/#latests">Upcoming</Link></li>
                 <li> <img src={popular} alt="latest" className={styles.icones__link} /><Link to="/#popular">Popular</Link></li>
                 <hr className="mt-3 bg-white"/>
                 <li className={styles.title}><Link to="/blog"> <span>M</span>ovies</Link></li>
