@@ -18,15 +18,17 @@ import Blog from './pages/Blog';
 function App() {
   const [movies, setMovies] = useState({
     popularMovies:[],
-    upcomingMovies:[]
+    upcomingMovies: [],
+    ActionMovies:[]
   })
 
   useEffect(() => {
   
   const getDataMovies = async () => {
     const resultPopularMovies = await axios("https://api.themoviedb.org/3/movie/popular?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US");
-    const resultUpcomingMovies=await axios("https://api.themoviedb.org/3/movie/upcoming?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&page=1")
-    setMovies({...movies,popularMovies:resultPopularMovies.data.results,upcomingMovies:resultUpcomingMovies.data.results });
+    const resultUpcomingMovies = await axios("https://api.themoviedb.org/3/movie/upcoming?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&page=1")
+    const resultActionMovies=await axios(`https://api.themoviedb.org/3/list/28?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US`)
+    setMovies({ ...movies, popularMovies: resultPopularMovies.data.results, upcomingMovies: resultUpcomingMovies.data.results, ActionMovies: resultActionMovies.data.items });
   }
   getDataMovies()
  
@@ -63,7 +65,7 @@ const [query, setQuery] = useState("")
       </Route>
 
       <Route path="/action">
-        <ActionMovies/>
+          <ActionMovies ActionMovies={movies.ActionMovies}/>
       </Route>
 
       <Route path="/series">

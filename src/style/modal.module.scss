@@ -63,9 +63,12 @@
                            font-weight: 600;
                            color: $whiteColor;
                            padding: 2% 4%;
+                           margin-top: 1%;
 
                            &:nth-child(2) {
                                color: $yelloColor;
+                               margin-top: 1%;
+
                            }
                        }
 
@@ -82,7 +85,8 @@
                                font-weight: bolder;
                                text-align: center;
                                color: $whiteColor;
-                               margin: auto 0;
+                               margin-top: 1%;
+
                            }
 
                            img {
@@ -216,6 +220,8 @@
                            font-size: 24px;
                            line-height: 15px;
                            color: $whiteColor;
+                           margin-top: 1%;
+
 
                            span {
                                color: $yelloColor;

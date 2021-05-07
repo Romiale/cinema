@@ -17,7 +17,7 @@ function MovieModal({ Movie }) {
                 <div className="modal-content">
                     <div>
                         <div className={styles.header__modal}>
-                            <h3 className={styles.h5} id="exampleModalLabel">{Movie.title}</h3>
+                            <h2 className={styles.h5} id="exampleModalLabel">{Movie.title}</h2>
                             <div>
                                 <img className={styles.icones} src={heart} alt="eye" />
                                 <span>{Movie.vote_average + "K"}</span>

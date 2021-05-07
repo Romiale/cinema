@@ -8,7 +8,7 @@ import heart from '../icons/heart.svg';
 import CardMovie from '../components/CardMovie';
 
 
-export default function Contact() {
+export default function ActionMovies({ ActionMovies }) {
     return (
         <div className={styles.body}>
             <div className={styles.parent__presentaion_cards}>
@@ -39,6 +39,13 @@ export default function Contact() {
                 </div>
             </div>
             <h2> <span>A</span>ction Movies</h2>
+            <div className="action_movies d-flex justify-content-evenly flex-wrap">
+                {
+                    ActionMovies.map(Movie => {
+                        return <CardMovie Movie={Movie} />
+                    })
+                }
+            </div>
         </div>
     )
 }

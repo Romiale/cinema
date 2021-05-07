@@ -8,7 +8,7 @@ function CardMovieModal({ similarMovie }) {
     return (
         <div className={styles.card__movie}>
             <div className={styles.card__image}>
-                <img src={"https://image.tmdb.org/t/p/original/" + similarMovie.poster_path} alt="bg" />
+                <img src={"https://image.tmdb.org/t/p/original/" + similarMovie.backdrop_path} alt="bg" />
             </div>
             <div className={styles.card__comment}>
                 <div className={styles.card__comment__details}>
