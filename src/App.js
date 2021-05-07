@@ -29,6 +29,7 @@ function App() {
     const resultUpcomingMovies = await axios("https://api.themoviedb.org/3/movie/upcoming?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&page=1")
     const resultActionMovies=await axios(`https://api.themoviedb.org/3/list/28?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US`)
     setMovies({ ...movies, popularMovies: resultPopularMovies.data.results, upcomingMovies: resultUpcomingMovies.data.results, ActionMovies: resultActionMovies.data.items });
+    console.log(resultActionMovies.data.items);
   }
   getDataMovies()
  
@@ -65,7 +66,7 @@ const [query, setQuery] = useState("")
       </Route>
 
       <Route path="/action">
-          <ActionMovies ActionMovies={movies.ActionMovies}/>
+          <ActionMovies ActionMovies={ActionMovies}/>
       </Route>
 
       <Route path="/series">
