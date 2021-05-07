@@ -1,9 +1,15 @@
+@import "../style/colors.scss";
+
 .search__page {
-    width: auto;
+    width: 88%;
     height: auto;
+    min-height: 100vh;
+    padding-bottom: auto;
     padding-left: 1%;
-    margin-left: 0%;
-    background: #131417;
+    margin-left: 12%;
+    padding-right: 6%;
+    padding-bottom: auto;
+    background: $darkColor;
     position: relative;
 
 
@@ -11,5 +17,10 @@
         width: auto;
         margin-left: -10%;
         overflow-x: hidden;
+    }
+
+    h3 {
+        margin-top: 20%;
+        color: $whiteColor;
     }
 }

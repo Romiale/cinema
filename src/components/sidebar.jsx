@@ -21,9 +21,9 @@ function Sidebar() {
                 <li> <img src={popular} alt="latest" className={styles.icones__link} /><Link to="/#popular">Popular</Link></li>
                 <hr className="mt-3 bg-white"/>
                 <li className={styles.title}><Link to="/blog"> <span>M</span>ovies</Link></li>
-                <li><img src={Action} alt="latest" className={styles.icones__link} /><Link to="/contact">Action</Link></li>
-                <li><img src={serie} alt="latest" className={styles.icones__link} /><Link to="/about">Series</Link></li>
-                <li><img src={fiction} alt="latest" className={styles.icones__link} /><Link to="/blog">Fiction</Link></li>
+                <li><img src={Action} alt="latest" className={styles.icones__link} /><Link to="/action">Action</Link></li>
+                <li><img src={serie} alt="latest" className={styles.icones__link} /><Link to="/series">Series</Link></li>
+                <li><img src={fiction} alt="latest" className={styles.icones__link} /><Link to="/fiction">Fiction</Link></li>
             </ul>
             <img src={movie} alt="movie" className={styles.imgMovie} />
             <p>Best movies and videos on cinema, watch and enjoy the life </p>

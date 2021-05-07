@@ -1,5 +1,7 @@
+@import "../style/colors.scss";
+
 .navigation {
-    background-color: #131417;
+    background-color: $darkColor;
     padding: 1% 0%;
     display: flex;
     justify-content: center;
@@ -9,6 +11,7 @@
     width: 90%;
     right: 0;
     top: 0;
+    border-bottom: 1px solid #000;
 
     @media (max-width: 750px) {
         width: 100%;
@@ -25,25 +28,31 @@
             width: 80%;
             border-radius: 10px;
             border: none;
-            background: #252830;
+            background: $grayColor;
             padding: 0.5%;
-            color: white;
+            color: $whiteColor;
+            text-align: left;
+
+            &:focus {
+                outline: unset;
+            }
 
             &::placeholder {
                 text-align: center;
                 font-size: 15px;
-                color: white;
+                color: $whiteColor;
                 font-family: 'Saira',
                     sans-serif;
                 font-weight: 200;
             }
+
         }
 
         button {
             padding: 0.3% 1.9%;
             border: none;
             border-radius: 5px;
-            background: #FFDD00;
+            background: $yelloColor;
         }
 
     }
@@ -60,7 +69,7 @@
     }
 
     span {
-        color: white;
+        color: $whiteColor;
         font-weight: 500;
         font-family: 'Saira',
             sans-serif;

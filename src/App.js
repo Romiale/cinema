@@ -6,8 +6,8 @@ import axios from 'axios';
 import Navbar from './components/Navbar';
 import Sidebar from './components/sidebar';
 import Home from './pages/Home';
-import { searchContext,FoundsearchContext } from './components/Contexts';
-import Contact from './pages/Contact';
+import { searchContext} from './components/Contexts';
+import ActionMovies from './pages/ActionMovies';
 import About from './pages/About';
 import Blog from './pages/Blog';
 
@@ -62,15 +62,15 @@ const [query, setQuery] = useState("")
           </UpcomingContext.Provider>
       </Route>
 
-      <Route path="/contact">
-        <Contact/>
+      <Route path="/action">
+        <ActionMovies/>
       </Route>
 
-      <Route path="/about">
+      <Route path="/series">
         <About/>
       </Route>
         
-        <Route path="/blog">
+        <Route path="/fiction">
           <searchContext.Provider value={foundMovies}>
             <Blog/>
           </searchContext.Provider>

@@ -1,3 +1,5 @@
+@import "../style/colors.scss";
+
 div.footer {
     background: #000;
     display: flex;
@@ -18,7 +20,7 @@ div.footer {
             font-family: 'Saira', sans-serif;
             font-size: 20px;
             font-weight: 700;
-            color: #FFD200;
+            color: $yelloColor;
             text-align: center;
         }
 
@@ -26,7 +28,7 @@ div.footer {
             font-family: 'Saira', sans-serif;
             font-weight: 300;
             font-size: 15px;
-            color: white;
+            color: $whiteColor;
             text-align: justify;
         }
 
@@ -67,12 +69,12 @@ div.footer {
                 sans-serif;
             font-size: 20px;
             font-weight: 700;
-            color: #ffffff;
+            color: $whiteColor;
             text-align: center;
         }
 
         p {
-            color: white;
+            color: $whiteColor;
             font-family: 'Saira', sans-serif;
             font-weight: 400;
             font-size: 15px;
@@ -102,14 +104,14 @@ div.footer {
             font-family: 'Saira', sans-serif;
             font-size: 20px;
             font-weight: 700;
-            color: #ffffff;
+            color: $whiteColor;
             text-align: center;
         }
 
         p {
             font-family: 'Saira', sans-serif;
             font-weight: 300;
-            color: white;
+            color: $whiteColor;
             font-size: 15px;
             text-align: justify;
         }
@@ -119,7 +121,7 @@ div.footer {
             font-family: 'Saira', sans-serif;
             font-weight: bolder;
             font-size: 2em;
-            color: white;
+            color: $whiteColor;
         }
     }
 }

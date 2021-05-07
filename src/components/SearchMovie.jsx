@@ -10,8 +10,8 @@ function SearchMovie({ handlChange, handlClick }) {
     return (
         <div>
             <input type="text" placeholder="Search movie" onChange={handlChange} />
-            <button onClick={handlClick}>
-                <Link to="/blog"><img src={search} alt="search" /></Link>
+            <button>
+                <Link to="/fiction"><img src={search} alt="search" onClick={handlClick} /></Link>
             </button>
         </div>
     )

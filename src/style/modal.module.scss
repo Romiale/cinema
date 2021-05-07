@@ -1,9 +1,11 @@
+   @import "../style/colors.scss";
+
    div {
        div {
            div {
                div {
                    .header__modal {
-                       background: #131417;
+                       background: $darkColor;
                        width: 100%;
                        padding: 0.8% 2%;
                        display: flex;
@@ -12,7 +14,7 @@
                        border-top-left-radius: 4px;
 
                        .h5 {
-                           color: white;
+                           color: $whiteColor;
                            font-family: 'Saira', sans-serif;
                            font-size: 25px;
                            font-weight: bold;
@@ -33,14 +35,14 @@
                            span {
                                margin-left: -5%;
                                margin-right: 10%;
-                               color: white;
+                               color: $whiteColor;
                                font-size: 13px;
                                font-family: 'Saira', sans-serif;
                                font-weight: 300;
                            }
 
                            button {
-                               background: #FFDD00;
+                               background: $yelloColor;
                                color: black;
                                font-size: 12px;
 
@@ -51,7 +53,7 @@
                    .modal__body {
                        height: auto;
                        width: 100%;
-                       background: #131417;
+                       background: $darkColor;
 
                        h3 {
 
@@ -59,11 +61,11 @@
                            font-family: 'Saira',
                                sans-serif;
                            font-weight: 600;
-                           color: white;
+                           color: $whiteColor;
                            padding: 2% 4%;
 
                            &:nth-child(2) {
-                               color: #FFD200;
+                               color: $yelloColor;
                            }
                        }
 
@@ -72,14 +74,14 @@
                            width: 100%;
                            display: flex;
                            justify-content: space-evenly;
-                           background: #1F2229;
+                           background: $grayColor;
 
                            h3 {
                                font-family: 'Saira', sans-serif;
                                font-size: 3em;
                                font-weight: bolder;
                                text-align: center;
-                               color: white;
+                               color: $whiteColor;
                                margin: auto 0;
                            }
 
@@ -97,7 +99,7 @@
                            .overview__comment {
                                width: 65%;
                                height: auto;
-                               border-bottom: solid 1px #FFD200;
+                               border-bottom: solid 1px $yelloColor;
                                margin-left: 4%;
 
 
@@ -108,10 +110,11 @@
                                    text-align: justify;
                                    font-size: 16px;
                                    line-height: 20px;
-                                   color: #FFF;
+                                   color: $whiteColor;
                                    height: auto;
                                    margin-left: 0;
                                    margin-right: 0;
+                                   width: 100%;
                                }
 
                                p:nth-child(2) {
@@ -119,7 +122,7 @@
                                    font-weight: bold;
                                    font-size: 16px;
                                    line-height: 20px;
-                                   color: #FFF;
+                                   color: $whiteColor;
                                    height: auto;
                                    margin-top: 2%;
                                    margin-bottom: 2%;
@@ -156,7 +159,7 @@
                                        line-height: 18px;
                                        letter-spacing: 0em;
                                        text-align: left;
-                                       color: white;
+                                       color: $whiteColor;
                                        padding-left: 7%;
                                        margin-top: 2%;
 
@@ -187,7 +190,7 @@
 
                            div {
                                width: 155px;
-                               background: #1F2229;
+                               background: $grayColor;
                                margin: 2%;
                                border-radius: 2px;
 
@@ -212,10 +215,10 @@
                            font-weight: bold;
                            font-size: 24px;
                            line-height: 15px;
-                           color: white;
+                           color: $whiteColor;
 
                            span {
-                               color: #FFD200;
+                               color: $yelloColor;
                            }
                        }
 
@@ -276,7 +279,7 @@
                                    padding: 2%;
                                    margin-left: 4%;
                                    border-radius: 2%;
-                                   background: #1E1F26;
+                                   background: $grayColor;
                                    transition: 0.3s ease 0.1s;
 
                                    @media (max-width: 411px) {
@@ -295,12 +298,10 @@
                                            font-family: 'Saira', sans-serif;
                                            font-weight: 400;
                                            font-size: 0.8em;
-                                           color: rgb(255, 255, 255);
+                                           color: $whiteColor;
                                            margin: 0 0 0 10%;
                                            padding: 0;
                                            display: inline;
-                                           width: 350px;
-                                           overflow: hidden;
                                            text-overflow: ellipsis;
 
                                            @media (max-width: 411px) {
@@ -318,7 +319,7 @@
                                            font-family: 'Saira', sans-serif;
                                            font-weight: 200;
                                            font-size: 12px;
-                                           color: rgb(255, 255, 255);
+                                           color: $whiteColor;
 
                                        }
 
@@ -348,7 +349,7 @@
                            button {
                                width: 183px;
                                height: 31px;
-                               background: #1F2229;
+                               background: $darkColor;
                                border-radius: 4px;
                                border: none;
                                font-family: 'Saira', sans-serif;
@@ -357,7 +358,7 @@
                                font-size: 13px;
                                line-height: 15px;
                                text-align: center;
-                               color: #FFFFFF;
+                               color: $whiteColor;
                                margin: 3% 30%;
                            }
                        }

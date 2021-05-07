@@ -25,7 +25,6 @@ export default function Navigation({handlClick,handlChange}) {
                         </div>
                     </div>   
                 </div>
-            <span>Sign Up</span>
            
             </div>
             
