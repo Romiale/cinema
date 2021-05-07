@@ -2,13 +2,15 @@ import React from 'react'
 import styles from '../style/modal.module.scss';
 import heart from '../icons/heart.svg';
 import eye from '../icons/eye.svg';
+import logoCinema from '../img/bg2.jpg';
 
 
 function CardMovieModal({ similarMovie }) {
+    let backgroundImage = "https://image.tmdb.org/t/p/original/" + similarMovie.backdrop_path
     return (
         <div className={styles.card__movie}>
             <div className={styles.card__image}>
-                <img src={"https://image.tmdb.org/t/p/original/" + similarMovie.backdrop_path} alt="bg" />
+                <img src={backgroundImage ? backgroundImage : logoCinema} alt="bg" />
             </div>
             <div className={styles.card__comment}>
                 <div className={styles.card__comment__details}>

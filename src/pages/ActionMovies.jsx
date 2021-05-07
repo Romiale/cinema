@@ -9,6 +9,9 @@ import CardMovie from '../components/CardMovie';
 
 
 export default function ActionMovies({ ActionMovies }) {
+    const getGenresMovies = (id) => {
+        console.log("hello world")
+    }
     return (
         <div className={styles.body}>
             <div className={styles.parent__presentaion_cards}>
@@ -37,6 +40,11 @@ export default function ActionMovies({ ActionMovies }) {
 
                     </div>
                 </div>
+                <ul>
+
+                    <li> <button onClick={getGenresMovies}>fiction</button></li>
+
+                </ul>
             </div>
             <h2> <span>A</span>ction Movies</h2>
             <div className="action_movies d-flex justify-content-evenly flex-wrap">

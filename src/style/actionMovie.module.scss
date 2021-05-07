@@ -24,6 +24,7 @@
     }
 
     .parent__presentaion_cards {
+        position: relative;
         width: auto;
         height: 50vh;
         display: flex;
@@ -104,6 +105,38 @@
                 }
             }
         }
+
+        ul {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            bottom: -12%;
+
+            li {
+                display: block;
+                list-style: none;
+                margin: 6%;
+
+
+                button {
+                    color: $whiteColor;
+                    border: none;
+                    background: $grayColor;
+                    padding: 18%;
+                    border-radius: 4%;
+                    font-family: 'Saira', sans-serif;
+                    font-size: 16px;
+                    font-weight: 500;
+
+                    &:hover {
+                        color: $yelloColor;
+                        transform: scale(1.05);
+                    }
+
+                }
+            }
+        }
+
 
     }
 
