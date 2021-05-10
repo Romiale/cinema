@@ -1,10 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { searchContext } from '../components/Contexts';
 import styles from '../style/search.module.scss';
-import Wrapper from '../components/Wrapper';
 import CardMovie from "../components/CardMovie";
 
-export default function Blog() {
+export default function Search() {
 
     const foundMovies = useContext(searchContext);
 

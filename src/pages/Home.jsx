@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import UpcommingList from '../components/UpcommingList';
 import PopularList from '../components/PopularList';
 import Footer from '../components/Footer';
 import styles from '../style/Home.module.scss';
 import bg2 from '../img/bg2.jpg';
 import play from '../icons/play.svg';
-
 
 
 
@@ -18,8 +17,8 @@ const Home = () => {
                 <div className={styles.video}>
                     <img src={bg2} alt="bg" />
                     <div className={styles.video__description}>
-                        <h1>THE VENOM 3</h1>
-                        <p>Cne of lorem ipsum dolor sit amet conse Octetur sit amet conse Octetur adipi sicing elit. Ducimus, repellendus</p>
+                        <h1>AVATAR</h1>
+                        <p>In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization.</p>
                         <img src={play} alt="" />
                     </div>
                 </div>

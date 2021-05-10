@@ -1,6 +1,4 @@
-import axios from 'axios';
-import { searchContext } from '../components/Contexts';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import search from '../icons/search.svg'
 

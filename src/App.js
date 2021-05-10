@@ -1,15 +1,15 @@
 import {Route, Switch} from 'react-router-dom';
 import { PopularContext } from '../src/components/Contexts';
 import { UpcomingContext } from '../src/components/Contexts';
-import React , {useState , useEffect,useContext} from 'react' ;   
+import React , {useState , useEffect} from 'react' ;   
 import axios from 'axios';
 import Navbar from './components/Navbar';
 import Sidebar from './components/sidebar';
 import Home from './pages/Home';
 import { searchContext} from './components/Contexts';
-import ActionMovies from './pages/ActionMovies';
-import About from './pages/About';
-import Blog from './pages/Blog';
+import Movies from './pages/Movies';
+import TV from './pages/TV';
+import Search from './pages/Search';
 
 
 
@@ -19,7 +19,8 @@ function App() {
   const [movies, setMovies] = useState({
     popularMovies:[],
     upcomingMovies: [],
-    ActionMovies:[]
+    ActionMovies: [],
+    MoviesCategories:[]
   })
 
   useEffect(() => {
@@ -27,9 +28,9 @@ function App() {
   const getDataMovies = async () => {
     const resultPopularMovies = await axios("https://api.themoviedb.org/3/movie/popular?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US");
     const resultUpcomingMovies = await axios("https://api.themoviedb.org/3/movie/upcoming?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&page=1")
-    const resultActionMovies=await axios(`https://api.themoviedb.org/3/list/28?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US`)
-    setMovies({ ...movies, popularMovies: resultPopularMovies.data.results, upcomingMovies: resultUpcomingMovies.data.results, ActionMovies: resultActionMovies.data.items });
-    console.log(resultActionMovies.data.items);
+    const resultMoviesCategories=await axios (`https://api.themoviedb.org/3/genre/movie/list?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US`)
+    setMovies({ ...movies, popularMovies: resultPopularMovies.data.results, upcomingMovies: resultUpcomingMovies.data.results, MoviesCategories:resultMoviesCategories.data.genres});
+    
   }
   getDataMovies()
  
@@ -49,6 +50,23 @@ const [query, setQuery] = useState("")
   }
        
   const handlChange = event => setQuery(event.target.value)
+
+  const [MoviesByGenre, setMoviesBygenre] = useState([])
+  const [movieGenreId, setMovieGenreId] = useState("")
+  
+  useEffect(() => {
+
+    const getMoviesBygenreId = async () => {
+      const resultMoviesByGenreId = await axios(`https://api.themoviedb.org/3/discover/movie?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${movieGenreId}&with_watch_monetization_types=flatrate`)
+      setMoviesBygenre(resultMoviesByGenreId.data.results);
+    }
+    getMoviesBygenreId()
+    
+  }, [movieGenreId])
+
+  const getMoviesByCategories = (genreId) => {
+      setMovieGenreId(genreId)
+  }
                 
   return (
     
@@ -65,17 +83,17 @@ const [query, setQuery] = useState("")
           </UpcomingContext.Provider>
       </Route>
 
-      <Route path="/action">
-          <ActionMovies ActionMovies={ActionMovies}/>
+      <Route path="/movies">
+          <Movies getMoviesByCategories={getMoviesByCategories} MoviesByGenre={MoviesByGenre} genres={movies.MoviesCategories}/>
       </Route>
 
       <Route path="/series">
-        <About/>
+        <TV/>
       </Route>
         
         <Route path="/fiction">
           <searchContext.Provider value={foundMovies}>
-            <Blog/>
+            <Search/>
           </searchContext.Provider>
       </Route>
         

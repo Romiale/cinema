@@ -113,23 +113,23 @@ div.card__movie {
         .card__comment__info__group {
             display: flex;
             justify-content: space-between;
+            width: 100%;
 
             p {
                 font-family: 'Saira', sans-serif;
-                font-weight: 400;
+                font-weight: 600;
                 font-size: 0.8em;
                 color: $whiteColor;
-                width: 60%;
+                max-width: 60% !important;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 margin: 0 5%;
                 padding: 0;
-
             }
 
             img {
                 width: 6%;
-                margin: 1% 8%;
+                margin: 1% 8% 1% 1%;
 
             }
         }

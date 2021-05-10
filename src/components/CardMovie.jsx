@@ -26,7 +26,7 @@ const CardMovie = ({ Movie }) => {
                 </div>
 
                 <div className={styles.card__comment__info__group}>
-                    <p>{Movie.title}</p>
+                    <p> <nobr>{Movie.title}</nobr></p>
                     {/* debut modal */}
                     <img className={styles.card__comment__info} src={info} alt="info" data-mdb-toggle="modal" data-mdb-target={"#exampleModal" + Movie.id} />
                     <MovieModal Movie={Movie} />

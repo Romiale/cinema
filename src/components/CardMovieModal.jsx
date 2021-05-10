@@ -23,7 +23,7 @@ function CardMovieModal({ similarMovie }) {
                 </div>
 
                 <div className={styles.card__comment__info__group}>
-                    <p>{similarMovie.title}</p>
+                    <p><nobr>{similarMovie.title}</nobr></p>
                 </div>
 
             </div>
