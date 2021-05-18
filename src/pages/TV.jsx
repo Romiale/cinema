@@ -1,17 +1,52 @@
-import React from 'react';
-import Wrapper from '../components/Wrapper';
-import styles from '../style/About.module.css';
+import React, { useState, useEffect } from 'react';
+import styles from '../style/movies.module.scss';
+import CardMovie from '../components/CardMovie';
+import Footer from '../components/Footer';
+import TreeBestMovies from '../components/TreeBestMovies'
 
-export default function About() {
+
+export default function TV({ getSeriesByCategories, seriesByGenre, genres }) {
+
+    const getGenresMovies = (genreId, genreName) => {
+        getSeriesByCategories(genreId)
+        setGenreTitle(genreName);
+    }
+
+
+    const [genreTitle, setGenreTitle] = useState("")
+    const [treeFirtsMovies, setTreeFirtsMovies] = useState([])
+
+
+    useEffect(() => {
+        const sortMovies = () => {
+            const sortedMoovies = seriesByGenre.sort((a, b) => {
+                return b.vote_count - a.vote_count
+            })
+            setTreeFirtsMovies(sortedMoovies.slice(0, 3))
+        }
+        sortMovies()
+    }, [seriesByGenre]);
+
+
     return (
-        <Wrapper>
-            <div>
-                <h1 className={styles.title}>About</h1>
-                <div className={styles.body}>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit autem distinctio dolores reprehenderit cumque beatae praesentium, inventore sed nesciunt repellat eum temporibus dolorum illum iure aut deserunt magni. Rem, saepe!</p>
-                </div>
+        <div className={styles.body}>
+            <div className={styles.parent__presentaion_cards}>
+                <TreeBestMovies treeFirtsMovies={treeFirtsMovies} />
+                <ul>
+                    {
+                        genres.map(genre => <li key={genre.id} className="m-1"> <button onClick={() => getGenresMovies(genre.id, genre.name)}> <nobr>{genre.name}</nobr></button></li>)
+                    }
+                </ul>
             </div>
-        </Wrapper>
-        
+            <h1 className="text-white mt-5 p-3 header" >{genreTitle}</h1>
+            <div className={styles.Movies__cards__parent} id="myHeader">
+                {
+                    seriesByGenre.map(Movie => {
+                        return <CardMovie key={Movie.id} Movie={Movie} />
+                    })
+                }
+            </div>
+            <Footer />
+        </div>
     )
 }

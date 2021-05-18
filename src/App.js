@@ -17,39 +17,64 @@ import Search from './pages/Search';
 
 function App() {
   const [movies, setMovies] = useState({
-    popularMovies:[],
+   
     upcomingMovies: [],
     ActionMovies: [],
-    MoviesCategories:[]
+    MoviesCategories: [],
+    TvCategories:[],
+    
   })
 
   useEffect(() => {
   
   const getDataMovies = async () => {
-    const resultPopularMovies = await axios("https://api.themoviedb.org/3/movie/popular?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US");
     const resultUpcomingMovies = await axios("https://api.themoviedb.org/3/movie/upcoming?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&page=1")
-    const resultMoviesCategories=await axios (`https://api.themoviedb.org/3/genre/movie/list?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US`)
-    setMovies({ ...movies, popularMovies: resultPopularMovies.data.results, upcomingMovies: resultUpcomingMovies.data.results, MoviesCategories:resultMoviesCategories.data.genres});
+    const resultMoviesCategories = await axios(`https://api.themoviedb.org/3/genre/movie/list?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US`)
+    const resultTvCategories = await axios(`https://api.themoviedb.org/3/genre/tv/list?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US`)
+    
+    setMovies({ ...movies, upcomingMovies: resultUpcomingMovies.data.results, MoviesCategories:resultMoviesCategories.data.genres,TvCategories:resultTvCategories.data.genres});
     
   }
   getDataMovies()
- 
-}, [])
+  }, [])
+  
 
+
+
+  const [pageNumber, setpageNumber] = useState(1)
+  const [popularMovies, setPopularMovies] = useState([])
+  useEffect(() => {
+    const getPopularMovies = async () => {
+       const resultPopularMovies = await axios(`https://api.themoviedb.org/3/movie/popular?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&page=${pageNumber}`);
+      setPopularMovies(resultPopularMovies.data.results)
+      
+    }
+    getPopularMovies()
+  }, [pageNumber])
+
+  const onclickNextPage=() => {
+  setpageNumber(pageNumber+1)
+  }
+  
+  const onclickPreviewPage = () => {
+      if (pageNumber>1) {
+        setpageNumber(pageNumber-1)
+      }
+}
   
   
 const [foundMovies, setFoundMovies] = useState([])
 const [query, setQuery] = useState("")
 
-  const handlClick = () => {
-     const fecthMovies = async () => {
-            const fecthFoundMovies = await axios(`https://api.themoviedb.org/3/search/movie?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&query=${query}&page=all&include_adult=false`)
-            setFoundMovies(fecthFoundMovies.data.results)
+  const handleClick = () => {
+    const fecthMovies = async () => {
+            const fecthFoundMovies = await axios(`https://api.themoviedb.org/3/search/multi?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&query=${query}&page=1&include_adult=false`)
+      setFoundMovies(fecthFoundMovies.data.results)
         }
         fecthMovies()
   }
-       
-  const handlChange = event => setQuery(event.target.value)
+  const handleChange = event => setQuery(event.target.value)
+
 
   const [MoviesByGenre, setMoviesBygenre] = useState([])
   const [movieGenreId, setMovieGenreId] = useState("")
@@ -67,18 +92,37 @@ const [query, setQuery] = useState("")
   const getMoviesByCategories = (genreId) => {
       setMovieGenreId(genreId)
   }
-                
-  return (
+  
+  
+
+  const [seriesByGenre, setSeriesByGenre] = useState([])
+  const [serieGenreId, setSerieGenreId] = useState("")
+  
+  useEffect(() => {
+
+    const getSeriesBygenreId = async () => {
+      const resultSeriesByGenreId = await axios(`https://api.themoviedb.org/3/discover/tv?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&with_genres=${serieGenreId}&include_null_first_air_dates=false&with_watch_monetization_types=flatrate`)
+      setSeriesByGenre(resultSeriesByGenreId.data.results);
+    }
+    getSeriesBygenreId()
     
+  }, [serieGenreId])
+
+  const getSeriesByCategories = (genreId) => {
+    setSerieGenreId(genreId)
+  }
+
+
+  return (
     <div>
-      <Navbar handlClick={handlClick} handlChange={handlChange} />
+      <Navbar handleClick={handleClick} handleChange={handleChange} />
       <Sidebar/>
       <Switch>
 
       <Route exact path="/">
           <UpcomingContext.Provider value={movies.upcomingMovies}>
-              <PopularContext.Provider value={movies.popularMovies}>
-                  <Home />
+              <PopularContext.Provider value={popularMovies}>
+              <Home onclickNextPage={onclickNextPage} onclickPreviewPage={onclickPreviewPage}/>
               </PopularContext.Provider>
           </UpcomingContext.Provider>
       </Route>
@@ -88,7 +132,7 @@ const [query, setQuery] = useState("")
       </Route>
 
       <Route path="/series">
-        <TV/>
+          <TV getSeriesByCategories={getSeriesByCategories} seriesByGenre={seriesByGenre} genres={movies.TvCategories}/>
       </Route>
         
         <Route path="/fiction">

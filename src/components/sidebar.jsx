@@ -19,8 +19,8 @@ function Sidebar() {
                 <li> <img src={latest} alt="latest" className={styles.icones__link} /><Link to="/#latests">Upcoming</Link></li>
                 <li> <img src={popular} alt="latest" className={styles.icones__link} /><Link to="/#popular">Popular</Link></li>
                 <hr className="mt-3 bg-white" />
-                <li className={styles.title}><Link to="/movies"> <span>M</span>ovies</Link></li>
-                <li><img src={Action} alt="latest" className={styles.icones__link} /><Link to="/movies">Action</Link></li>
+                <li className={styles.title}><Link> <span>G</span>enres</Link></li>
+                <li><img src={Action} alt="latest" className={styles.icones__link} /><Link to="/movies">Movies</Link></li>
                 <li><img src={serie} alt="latest" className={styles.icones__link} /><Link to="/series">Series</Link></li>
             </ul>
             <img src={movie} alt="movie" className={styles.imgMovie} />

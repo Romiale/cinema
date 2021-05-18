@@ -1,23 +1,32 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import SimilarList from '../components/SimilarList'
+import CastingList from '../components/CastingList'
 import styles from '../style/modal.module.scss';
 import heart from '../icons/heart.svg';
 import eye from '../icons/eye.svg';
 import imdb from '../icons/imdb.svg';
 import netflix from '../icons/netflix.svg';
-import Casting from '../components/Casting';
-
+import axios from 'axios';
 
 
 
 function MovieModal({ Movie }) {
+    const [key, setKey] = useState([])
+    useEffect(() => {
+        const getTrialVideoKey = async () => {
+            const videoKey = await axios(`https://api.themoviedb.org/3/movie/${Movie.id}/videos?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US`)
+            setKey(videoKey.data.results[0] === undefined ? " " : videoKey.data.results[0].key)
+        }
+        getTrialVideoKey()
+    }, []);
+
     return (
         <div className="modal top fade" id={"exampleModal" + Movie.id} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
             <div className="modal-dialog modal-lg bg-dark">
                 <div className="modal-content">
                     <div>
                         <div className={styles.header__modal}>
-                            <h2 className={styles.h5} id="exampleModalLabel">{Movie.title}</h2>
+                            <h2 className={styles.h5} id="exampleModalLabel">{Movie.title ? Movie.title : Movie.name}</h2>
                             <div>
                                 <img className={styles.icones} src={heart} alt="eye" />
                                 <span>{Movie.vote_average + "K"}</span>
@@ -29,7 +38,10 @@ function MovieModal({ Movie }) {
                     </div>
                     <div className={styles.modal__body}>
                         <div className={styles.background__modalImage}>
-                            <img className="w-100 h-100 m-0 " src={"https://image.tmdb.org/t/p/original/" + Movie.backdrop_path} alt="bg" />
+
+                            <iframe id="ytplayer" type="text/html" width="800" height="405"
+                                src={`https://www.youtube.com/embed/${key}?cc_load_policy=1&enablejsapi=1&modestbranding=1&playsinline=1&start=1&color=white&iv_load_policy=3`}
+                                frameBorder="0" allowFullScreen />
                         </div>
                         <h3>Overview</h3>
                         <div className={styles.overview}>
@@ -52,14 +64,7 @@ function MovieModal({ Movie }) {
                         </div>
                         <h3>Casting</h3>
                         <div className={styles.casting__list}>
-                            <Casting />
-                            <Casting />
-                            <Casting />
-                            <Casting />
-                            <Casting />
-                            <Casting />
-                            <Casting />
-                            <Casting />
+                            <CastingList movieId={Movie.id} />
 
                         </div>
                         <h3 className={styles.similar}><span>S</span>imilar</h3>

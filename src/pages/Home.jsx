@@ -8,7 +8,7 @@ import play from '../icons/play.svg';
 
 
 
-const Home = () => {
+const Home = ({ onclickNextPage, onclickPreviewPage, pageMax }) => {
 
     return (
 
@@ -25,12 +25,14 @@ const Home = () => {
                 <h2 >Upcoming</h2>
                 <div id="latests" className={styles.latests}>
                     <UpcommingList />
+                    <button className="btn btn-dark"> Preview</button> <button className="btn btn-dark">Next</button>
                 </div>
 
                 <h2 >Popular</h2>
 
                 <div id="popular" className={styles.popular}>
                     <PopularList />
+                    <button className="btn btn-dark" onClick={onclickPreviewPage}> Preview</button> <button className="btn btn-dark" onClick={onclickNextPage}>Next</button>
                 </div>
                 <Footer />
             </div>
