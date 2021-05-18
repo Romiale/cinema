@@ -1,6 +1,7 @@
 import styles from '../style/Navbar.module.scss';
 import Sidebar from '../components/sidebar';
 import SearchMovie from '../components/SearchMovie';
+import logo_cinema from '../icons/logoFile.svg'
 
 
 export default function Navigation({ handleClick, handleChange }) {
@@ -8,6 +9,7 @@ export default function Navigation({ handleClick, handleChange }) {
     return (
         <div>
             <div className={styles.navigation}>
+                <img src={logo_cinema} className={styles.logo} alt="logo cinema" />
                 <SearchMovie handleChange={handleChange} handleClick={handleClick} />
                 <div className={styles.menu__modal}>
                     <button type="button" className="btn" data-mdb-toggle="modal" data-mdb-target="#menu">

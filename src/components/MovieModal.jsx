@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import ReactPlayer from 'react-player';
 import SimilarList from '../components/SimilarList'
 import CastingList from '../components/CastingList'
 import styles from '../style/modal.module.scss';
@@ -18,7 +19,7 @@ function MovieModal({ Movie }) {
             setKey(videoKey.data.results[0] === undefined ? " " : videoKey.data.results[0].key)
         }
         getTrialVideoKey()
-    }, []);
+    }, [Movie.id]);
 
     return (
         <div className="modal top fade" id={"exampleModal" + Movie.id} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
@@ -38,10 +39,7 @@ function MovieModal({ Movie }) {
                     </div>
                     <div className={styles.modal__body}>
                         <div className={styles.background__modalImage}>
-
-                            <iframe id="ytplayer" type="text/html" width="800" height="405"
-                                src={`https://www.youtube.com/embed/${key}?cc_load_policy=1&enablejsapi=1&modestbranding=1&playsinline=1&start=1&color=white&iv_load_policy=3`}
-                                frameBorder="0" allowFullScreen />
+                            <ReactPlayer height="400px" width="800px" controls={true} url={`www.youtube.com/embed/${key}`} />
                         </div>
                         <h3>Overview</h3>
                         <div className={styles.overview}>

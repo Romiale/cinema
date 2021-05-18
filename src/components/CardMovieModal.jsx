@@ -6,7 +6,7 @@ import logoCinema from '../img/bg2.jpg';
 
 
 function CardMovieModal({ similarMovie }) {
-    let backgroundImage = "https://image.tmdb.org/t/p/original/" + similarMovie.backdrop_path
+    const backgroundImage = "https://image.tmdb.org/t/p/original/" + similarMovie.backdrop_path
     return (
         <div className={styles.card__movie}>
             <div className={styles.card__image}>

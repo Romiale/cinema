@@ -38,7 +38,7 @@ export default function TV({ getSeriesByCategories, seriesByGenre, genres }) {
                     }
                 </ul>
             </div>
-            <h1 className="text-white mt-5 p-3 header" >{genreTitle}</h1>
+            <h1>{genreTitle ? genreTitle : "Series"}</h1>
             <div className={styles.Movies__cards__parent} id="myHeader">
                 {
                     seriesByGenre.map(Movie => {

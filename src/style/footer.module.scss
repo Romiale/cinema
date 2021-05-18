@@ -37,12 +37,9 @@ div.footer {
             justify-content: space-evenly;
 
             img {
-                width: 11%;
-                margin: 2% 10%;
+                width: 20%;
+                height: 10% !important;
 
-                &:nth-child(2) {
-                    width: 20%;
-                }
             }
         }
     }

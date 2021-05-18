@@ -1,5 +1,6 @@
 import React from 'react'
 import CardTreeBestMovies from '../components/CardTreeBestMovies'
+import { } from "module";
 
 
 function TreeBestMovies({ treeFirtsMovies }) {
@@ -9,7 +10,7 @@ function TreeBestMovies({ treeFirtsMovies }) {
             {
                 treeFirtsMovies.map(movie => {
                     return (
-                        <CardTreeBestMovies movie={movie} />
+                        <CardTreeBestMovies key={movie.id} movie={movie} />
                     )
                 })
             }

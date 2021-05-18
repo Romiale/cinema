@@ -1,7 +1,7 @@
 @import "../style/colors.scss";
 
 .search__page {
-    width: 88%;
+    width: auto;
     height: auto;
     min-height: 100vh;
     padding-bottom: auto;
@@ -13,10 +13,16 @@
     position: relative;
 
 
-    @media (max-width: 780px) {
-        width: auto;
-        margin-left: -10%;
+    @media (max-width: 770px) {
+        width: 100%;
+        margin-left: 0%;
         overflow-x: hidden;
+    }
+
+    h1 {
+        color: $whiteColor;
+        font-size: 30px;
+        text-align: center;
     }
 
     h3 {

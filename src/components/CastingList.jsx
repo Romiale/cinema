@@ -13,13 +13,13 @@ function CastingList({ movieId }) {
         }
         getListOfMovieCasting()
 
-    }, []);
+    }, [movieId]);
 
     return (
         <>
             {
                 castingList.map(person => {
-                    return <Casting person={person} />
+                    return <Casting key={person.id} person={person} />
                 })
             }
         </>

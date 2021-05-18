@@ -17,59 +17,45 @@ import Search from './pages/Search';
 
 function App() {
   const [movies, setMovies] = useState({
-   
     upcomingMovies: [],
-    ActionMovies: [],
-    MoviesCategories: [],
-    TvCategories:[],
+    popularMovies:[],
+    moviesCategories: [],
+    tvCategories:[],
     
   })
 
   useEffect(() => {
-  
-  const getDataMovies = async () => {
+  const getMovies = async () => {
     const resultUpcomingMovies = await axios("https://api.themoviedb.org/3/movie/upcoming?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&page=1")
+    const resultOfPopularMovies = await axios(`https://api.themoviedb.org/3/movie/popular?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&page=${pageNumber}`);
     const resultMoviesCategories = await axios(`https://api.themoviedb.org/3/genre/movie/list?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US`)
     const resultTvCategories = await axios(`https://api.themoviedb.org/3/genre/tv/list?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US`)
-    
-    setMovies({ ...movies, upcomingMovies: resultUpcomingMovies.data.results, MoviesCategories:resultMoviesCategories.data.genres,TvCategories:resultTvCategories.data.genres});
-    
+    setMovies({ ...movies, upcomingMovies: resultUpcomingMovies.data.results,popularMovies:resultOfPopularMovies.data.results,moviesCategories:resultMoviesCategories.data.genres,tvCategories:resultTvCategories.data.genres});
   }
-  getDataMovies()
+  getMovies()
   }, [])
-  
-
 
 
   const [pageNumber, setpageNumber] = useState(1)
-  const [popularMovies, setPopularMovies] = useState([])
-  useEffect(() => {
-    const getPopularMovies = async () => {
-       const resultPopularMovies = await axios(`https://api.themoviedb.org/3/movie/popular?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&page=${pageNumber}`);
-      setPopularMovies(resultPopularMovies.data.results)
-      
-    }
-    getPopularMovies()
-  }, [pageNumber])
 
-  const onclickNextPage=() => {
+  const goToNextPage = () => {
   setpageNumber(pageNumber+1)
   }
   
-  const onclickPreviewPage = () => {
-      if (pageNumber>1) {
-        setpageNumber(pageNumber-1)
+  const goToPreviewPage = () => {
+    if (pageNumber > 1) {
+      setpageNumber(pageNumber-1)
       }
 }
   
   
-const [foundMovies, setFoundMovies] = useState([])
+const [moviesFound, setFoundMovies] = useState([])
 const [query, setQuery] = useState("")
 
   const handleClick = () => {
     const fecthMovies = async () => {
-            const fecthFoundMovies = await axios(`https://api.themoviedb.org/3/search/multi?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&query=${query}&page=1&include_adult=false`)
-      setFoundMovies(fecthFoundMovies.data.results)
+            const resultsOfFoundMovies = await axios(`https://api.themoviedb.org/3/search/multi?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&query=${query}&page=1&include_adult=true`)
+      setFoundMovies(resultsOfFoundMovies.data.results)
         }
         fecthMovies()
   }
@@ -96,20 +82,20 @@ const [query, setQuery] = useState("")
   
 
   const [seriesByGenre, setSeriesByGenre] = useState([])
-  const [serieGenreId, setSerieGenreId] = useState("")
+  const [seriesGenreId, setSeriesGenreId] = useState("")
   
   useEffect(() => {
 
     const getSeriesBygenreId = async () => {
-      const resultSeriesByGenreId = await axios(`https://api.themoviedb.org/3/discover/tv?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&with_genres=${serieGenreId}&include_null_first_air_dates=false&with_watch_monetization_types=flatrate`)
+      const resultSeriesByGenreId = await axios(`https://api.themoviedb.org/3/discover/tv?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&with_genres=${seriesGenreId}&include_null_first_air_dates=false&with_watch_monetization_types=flatrate`)
       setSeriesByGenre(resultSeriesByGenreId.data.results);
     }
     getSeriesBygenreId()
     
-  }, [serieGenreId])
+  }, [seriesGenreId])
 
   const getSeriesByCategories = (genreId) => {
-    setSerieGenreId(genreId)
+    setSeriesGenreId(genreId)
   }
 
 
@@ -121,22 +107,22 @@ const [query, setQuery] = useState("")
 
       <Route exact path="/">
           <UpcomingContext.Provider value={movies.upcomingMovies}>
-              <PopularContext.Provider value={popularMovies}>
-              <Home onclickNextPage={onclickNextPage} onclickPreviewPage={onclickPreviewPage}/>
+              <PopularContext.Provider value={movies.popularMovies}>
+              <Home goToNextPage={goToNextPage} goToPreviewPage={goToPreviewPage}/>
               </PopularContext.Provider>
           </UpcomingContext.Provider>
       </Route>
 
       <Route path="/movies">
-          <Movies getMoviesByCategories={getMoviesByCategories} MoviesByGenre={MoviesByGenre} genres={movies.MoviesCategories}/>
+          <Movies getMoviesByCategories={getMoviesByCategories} MoviesByGenre={MoviesByGenre} genres={movies.moviesCategories}/>
       </Route>
 
       <Route path="/series">
-          <TV getSeriesByCategories={getSeriesByCategories} seriesByGenre={seriesByGenre} genres={movies.TvCategories}/>
+          <TV getSeriesByCategories={getSeriesByCategories} seriesByGenre={seriesByGenre} genres={movies.tvCategories}/>
       </Route>
         
         <Route path="/fiction">
-          <searchContext.Provider value={foundMovies}>
+          <searchContext.Provider value={moviesFound}>
             <Search/>
           </searchContext.Provider>
       </Route>

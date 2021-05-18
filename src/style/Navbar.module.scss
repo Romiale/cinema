@@ -13,10 +13,20 @@
     top: 0;
     border-bottom: 1px solid #000;
 
-    @media (max-width: 750px) {
+    @media (max-width: 770px) {
         width: 100%;
-        overflow-x: hidden;
+        overflow: hidden;
 
+    }
+
+    .logo {
+        display: none;
+
+        @media (max-width: 770px) {
+            display: unset;
+            margin-left: 10%;
+
+        }
     }
 
     div {
@@ -63,7 +73,7 @@
             background: #000;
         }
 
-        @media (min-width: 721px) {
+        @media (min-width: 770px) {
             display: none;
         }
 

@@ -38,7 +38,7 @@ export default function ActionMovies({ getMoviesByCategories, MoviesByGenre, gen
                     }
                 </ul>
             </div>
-            <h1 className="text-white mt-5 p-3 header" >{genreTitle}</h1>
+            <h1>{genreTitle ? genreTitle : "Movies"}</h1>
             <div className={styles.Movies__cards__parent} id="myHeader">
                 {
                     MoviesByGenre.map(Movie => {
