@@ -14,7 +14,7 @@ function Sidebar() {
         <div className={styles.sidebar}>
 
             <img src={logo} alt="logo cinema" className="logo" />
-            <button className={styles.sidebar__btn}> Contact Us</button>
+            <button className={styles.sidebar__btn}><a href="mailto:romialengoy5@gmail.com">Contact Us</a> </button>
             <ul>
                 <li className={styles.title}><NavLink activeClassName="active" to="/"> <span>H</span>ome</NavLink></li>
                 <li> <img src={latest} alt="upcoming" className={styles.icones__link} /><NavLink to="/">Upcoming</NavLink></li>

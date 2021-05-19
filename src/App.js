@@ -27,25 +27,20 @@ function App() {
   useEffect(() => {
   const getMovies = async () => {
     const resultUpcomingMovies = await axios("https://api.themoviedb.org/3/movie/upcoming?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&page=1")
-    const resultOfPopularMovies = await axios(`https://api.themoviedb.org/3/movie/popular?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&page=${pageNumber}`);
+    const resultOfPopularMovies = await axios(`https://api.themoviedb.org/3/movie/popular?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US&page=1`);
     const resultMoviesCategories = await axios(`https://api.themoviedb.org/3/genre/movie/list?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US`)
     const resultTvCategories = await axios(`https://api.themoviedb.org/3/genre/tv/list?api_key=e2a2f53fe94c336a47e632ddb6b9fc26&language=en-US`)
     setMovies({ ...movies, upcomingMovies: resultUpcomingMovies.data.results,popularMovies:resultOfPopularMovies.data.results,moviesCategories:resultMoviesCategories.data.genres,tvCategories:resultTvCategories.data.genres});
   }
   getMovies()
-  }, [])
+  }, [movies])
 
 
-  const [pageNumber, setpageNumber] = useState(1)
 
   const goToNextPage = () => {
-  setpageNumber(pageNumber+1)
   }
   
   const goToPreviewPage = () => {
-    if (pageNumber > 1) {
-      setpageNumber(pageNumber-1)
-      }
 }
   
   
