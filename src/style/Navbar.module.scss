@@ -30,7 +30,7 @@
     }
 
     div {
-        width: 50%;
+        width: 60%;
         display: flex;
         justify-content: space-around;
 
@@ -57,6 +57,22 @@
                 font-weight: 200;
             }
 
+        }
+
+        a {
+            display: none;
+
+            @media (max-width: 770px) {
+                display: unset;
+            }
+        }
+
+        h4 {
+            display: none;
+
+            @media (max-width: 770px) {
+                display: unset;
+            }
         }
 
         button {
