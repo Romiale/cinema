@@ -1,7 +1,7 @@
 import styles from '../style/Navbar.module.scss';
 import logo_cinema from '../icons/logoFile.svg';
 import SearchMovie from '../components/SearchMovie';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 
 export default function Navigation({ handleClick, handleChange }) {
@@ -15,7 +15,7 @@ export default function Navigation({ handleClick, handleChange }) {
                             <img src={logo_cinema} className={styles.logo} alt="logo cinema" />
                             <SearchMovie handleChange={handleChange} handleClick={handleClick} />
                             <button
-                                className="ml-4 navbar-toggler"
+                                className="ml-4 navbar-toggler m-2"
                                 type="button"
                                 data-mdb-toggle="collapse"
                                 data-mdb-target="#navbarNavAltMarkup"
@@ -23,7 +23,6 @@ export default function Navigation({ handleClick, handleChange }) {
                                 aria-expanded="false"
                                 aria-label="Toggle navigation"
                             >
-                                <i class="fas fa-bars"></i>
                             </button>
                         </div>
 

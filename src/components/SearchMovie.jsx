@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import search from '../icons/search.svg'
+import styles from '../style/Navbar.module.scss';
+
 
 
 function SearchMovie({ handleChange, handleClick }) {
@@ -9,7 +11,7 @@ function SearchMovie({ handleChange, handleClick }) {
         <div>
             <input type="text" placeholder="Search movie" onChange={handleChange} />
             <button>
-                <Link to="/fiction"><img src={search} alt="search" onClick={handleClick} /></Link>
+                <Link className={styles.search_button} to="/fiction"><img src={search} alt="search" onClick={handleClick} /></Link>
             </button>
         </div>
     )
