@@ -1,7 +1,7 @@
 import styles from '../style/Navbar.module.scss';
 import logo_cinema from '../icons/logoFile.svg';
 import SearchMovie from '../components/SearchMovie';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 
 export default function Navigation({ handleClick, handleChange }) {
@@ -23,6 +23,7 @@ export default function Navigation({ handleClick, handleChange }) {
                                 aria-expanded="false"
                                 aria-label="Toggle navigation"
                             >
+                                <i class="fas fa-bars"></i>
                             </button>
                         </div>
 
